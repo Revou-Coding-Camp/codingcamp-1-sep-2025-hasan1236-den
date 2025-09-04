@@ -7,16 +7,43 @@
 
     <!-- CSS External -->
     <link rel="stylesheet" href="css\style.css" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body>
     <!-- Header Section -->
-    <header></header>
+    <header>
+      <h1 class="text-3xl font-bold">My Todo List</h1>
+    </header>
 
     <!-- Main Section -->
-    <main></main>
+    <main>
+      <!-- Todo Input Section -->
+      <section id="todo-input-section" class="py-[16px]">
+        <form>
+                <input type="text" class="border-b p-2" id="todo-input" placeholder="Add a new task...">
+                <input type="date" class="border-b p-2" id="todo-date-input" placeholder="Select due date...">
+                <button type="button" id="add-todo-button" onclick="validateInput();"
+                    class="bg-blue-500 text-white px-4 py-2">Add</button>
+            </form>
+      </section>
+
+      <section class="flex justify-between ">
+        <button class="bg-blue-500 text-white px-4 p-2">
+          Filter Task
+        </button>
+
+        <button class="bg-red-500 text-white px-4 p-2">
+          Delete All Task
+        </button>
+      </section>
+    </main>
 
     <!-- Footer Section -->
-    <footer></footer>
+    <footer>
+      <p>&copy; 2025 Firdaus's Todo List</p>
+    </footer>
 
     <!-- Javascript External -->
     <script src="js\script.js"></script>
