@@ -1,6 +1,5 @@
 let todoList = [];
 
-/// Function to validate input fields
 function validateInput() {
     const todoInput = document.getElementById("todo-input").value.trim();
     const todoDateInput = document.getElementById("todo-date-input").value;
@@ -13,16 +12,16 @@ function validateInput() {
 }
 
 function addTodo(todo, dueDate) {
-  // Add a new todo item to the list
-    const todoItem = {
-    task: todo,
-    dueDate: dueDate,
-    completed: false,
-    };
+    const todoItem = { task: todo, dueDate: dueDate, completed: false };
     todoList.push(todoItem);
     renderTodoList();
     document.getElementById("todo-input").value = "";
     document.getElementById("todo-date-input").value = "";
+}
+
+function toggleComplete(index) {
+    todoList[index].completed = !todoList[index].completed;
+    renderTodoList();
 }
 
 function deleteTodo(index) {
@@ -51,7 +50,7 @@ function renderTodoList(list = todoList) {
     "flex justify-between items-center bg-gray-800 px-4 py-2 rounded-xl";
 
     li.innerHTML = `
-            <label class="flex items-center gap-2">
+        <label class="flex items-center gap-2">
             <input type="checkbox" onchange="toggleComplete(${index})" ${
     item.completed ? "checked" : ""
     }>
@@ -59,8 +58,8 @@ function renderTodoList(list = todoList) {
             item.completed ? "line-through text-gray-500" : ""
             }">${item.task}</span>
             <span class="text-sm text-gray-400">(${item.dueDate})</span>
-            </label>
-            <button onclick="deleteTodo(${index})" 
+        </label>
+        <button onclick="deleteTodo(${index})" 
             class="text-red-400 hover:text-red-600">Delete</button>
         `;
     todoListContainer.appendChild(li);
