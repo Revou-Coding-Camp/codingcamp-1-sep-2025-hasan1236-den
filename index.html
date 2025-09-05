@@ -11,32 +11,56 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body>
+  <body
+    class="bg-gray-900 text-white min-h-screen flex flex-col items-center p-6 space-y-6"
+  >
     <!-- Header Section -->
     <header>
       <h1 class="text-3xl font-bold">My Todo List</h1>
     </header>
 
     <!-- Main Section -->
-    <main>
+    <main w-full max-w-xl flex flex-col gap-6>
       <!-- Todo Input Section -->
       <section id="todo-input-section" class="py-[16px]">
-        <form>
-                <input type="text" class="border-b p-2" id="todo-input" placeholder="Add a new task...">
-                <input type="date" class="border-b p-2" id="todo-date-input" placeholder="Select due date...">
-                <button type="button" id="add-todo-button" onclick="validateInput();"
-                    class="bg-blue-500 text-white px-4 py-2">Add</button>
-            </form>
+        <form class="flex flex-col sm:flex-row gap-3">
+          <input
+            type="text"
+            class="px-3 py-2 rounded-xl bg-gray-800 text-white flex-1"
+            id="todo-input"
+            placeholder="Tambahkan Tugas..."
+          />
+          <input
+            type="date"
+            class="px-3 py-2 rounded-xl bg-gray-800 text-white"
+            id="todo-date-input"
+            placeholder="Pilih Tanggal Tugas..."
+          />
+          <button
+            type="button"
+            id="add-todo-button"
+            onclick="validateInput();"
+            class="bg-blue-500 text-white px-4 py-2 rounded-xl"
+          >
+            Tambah
+          </button>
+        </form>
       </section>
 
-      <section class="flex justify-between ">
-        <button class="bg-blue-500 text-white px-4 p-2">
-          Filter Task
+      <!-- Buttons -->
+      <section class="flex justify-between">
+        <button class="bg-blue-500 text-white px-4 p-2 rounded-xl">
+          Filter Hari
         </button>
 
-        <button class="bg-red-500 text-white px-4 p-2">
-          Delete All Task
+        <button class="bg-red-500 text-white px-4 p-2 rounded-xl">
+          Hapus Semua
         </button>
+      </section>
+
+      <!-- Todo List -->
+      <section>
+        <ul id="todo-list" class="flex flex-col gap-2"></ul>
       </section>
     </main>
 
