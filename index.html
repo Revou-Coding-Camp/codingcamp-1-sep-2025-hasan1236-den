@@ -6,7 +6,7 @@
     <title>Todo List - Firdaus</title>
 
     <!-- CSS External -->
-    <link rel="stylesheet" href="css\style.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -20,9 +20,9 @@
     </header>
 
     <!-- Main Section -->
-    <main w-full max-w-xl flex flex-col gap-6>
+    <main class="w-full max-w-xl flex flex-col gap-6">
       <!-- Todo Input Section -->
-      <section id="todo-input-section" class="py-[16px]">
+      <section id="todo-input-section">
         <form class="flex flex-col sm:flex-row gap-3">
           <input
             type="text"
@@ -34,13 +34,12 @@
             type="date"
             class="px-3 py-2 rounded-xl bg-gray-800 text-white"
             id="todo-date-input"
-            placeholder="Pilih Tanggal Tugas..."
           />
           <button
             type="button"
             id="add-todo-button"
             onclick="validateInput();"
-            class="bg-blue-500 text-white px-4 py-2 rounded-xl"
+            class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-xl"
           >
             Tambah
           </button>
@@ -49,11 +48,16 @@
 
       <!-- Buttons -->
       <section class="flex justify-between">
-        <button class="bg-blue-500 text-white px-4 p-2 rounded-xl">
+        <button 
+        onclick="filterTodo()"
+        class="bg-blue-500 text-white px-4 p-2 rounded-xl"
+        >
           Filter Hari
         </button>
-
-        <button class="bg-red-500 text-white px-4 p-2 rounded-xl">
+        <button 
+        onclick="deleteAllTodo()"
+        class="bg-red-500 text-white px-4 p-2 rounded-xl"
+        >
           Hapus Semua
         </button>
       </section>
@@ -66,7 +70,7 @@
 
     <!-- Footer Section -->
     <footer>
-      <p>&copy; 2025 Firdaus's Todo List</p>
+      <p class="text-sm text-gray-400">&copy; 2025 Firdaus's Todo List</p>
     </footer>
 
     <!-- Javascript External -->
